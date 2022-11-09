@@ -1,0 +1,244 @@
+<div class="homepage-header">
+  <div class="overlay"></div>
+  <section class="pt-5 pb-5 homepage-search-block position-relative">
+    <div class="banner-overlay"></div>
+    <div class="container">
+      <div class="row d-flex align-items-center py-lg-4">
+        <div class="col-lg-8 mx-auto">
+          <div class="homepage-search-title text-center">
+            <h2 class="mb-2 display-4 text-shadow text-white font-weight-normal"><span
+              class="font-weight-bold">Món ngon dành riêng cho bạn
+                                </span></h2>
+            <h5 class="mb-5 text-shadow text-white-50 font-weight-normal">Danh sách nhà hàng với nhiều
+              món ngon ưu đãi</h5>
+          </div>
+          <div class="homepage-search-form">
+            <form class="form-noborder">
+              <div class="form-row">
+                <div class="col-lg-2 col-md-2 col-sm-12 form-group">
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                  <input type="text" placeholder="Chọn món theo sở thích"
+                         class="form-control form-control-lg">
+                  <!-- <a class="locate-me" href="#"><i class="icofont-ui-pointer"></i> Locate Me</a> -->
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-12 form-group">
+                  <a href="listing.html" class="btn btn-primary btn-block btn-lg btn-gradient">Tìm
+                    kiếm</a>
+
+                </div>
+              </div>
+            </form>
+          </div>
+          <h6 class="mt-4 text-shadow text-white font-weight-normal">Ví dụ. Pizzas, Gà rán,
+            Gỏi cuốn, Cơm tấm...</h6>
+          <div class="owl-carousel-category owl-theme">
+            <owl-carousel-o [options]="customOptions">
+              <ng-template carouselSlide *ngFor="let newfood of listNewFood">
+                <div class="osahan-category-item" routerLink="/detail-food/{{newfood.id}}">
+                  <a>
+                    <img class="img-fluid" src="{{newfood.image}}" alt="">
+                    <h6>{{newfood.name}}</h6>
+                    <p>{{newfood.price| currency: 'VND':''}} VND</p>
+                  </a>
+                </div>
+              </ng-template>
+            </owl-carousel-o>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<section class="section pt-5 pb-5 bg-white homepage-add-section">
+  <div class="container">
+    <div class="section-header text-center">
+      <h2>Bộ sưu tập</h2>
+      <p>Hàng ngàn Coupon đang đón chờ bạn tại Trưa Nay Ăn Gì!</p>
+      <span class="line"></span>
+    </div>
+    <div class="row">
+      <div class="col-md-3 col-6">
+        <div class="products-box">
+          <a ><img alt=""
+                                      src="https://firebasestorage.googleapis.com/v0/b/smartphone-d00d7.appspot.com/o/image-66e95767-220722172048.jpeg?alt=media&token=8db76826-ef5b-497c-b5af-cae92aaecd58"
+                                      class="img-fluid rounded"></a>
+        </div>
+        <div class="info-restaurant info-basic-res" style="padding: 5px 8px;
+    border-bottom: 1px solid #ebebeb;"><h4 class="name-res" title="Lương sắp về, bão deal 0Đ"  style="    font-size: 14px;
+    font-weight: 700;
+    color: #252525;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-bottom: 1px;
+    padding-top: 5px;">Lương sắp về, bão deal 0Đ</h4><div class="txt-blue font12" style="font-size: .75rem!important;    color: #0288d1!important;">200 địa điểm</div></div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="products-box">
+          <a ><img alt=""
+                                      src="https://firebasestorage.googleapis.com/v0/b/smartphone-d00d7.appspot.com/o/image-3612afc4-220722174603.jpeg?alt=media&token=353e2fd6-eaad-44cd-824c-322be14cb5fd"
+                                      class="img-fluid rounded"></a>
+        </div>
+        <div class="info-restaurant info-basic-res" style="padding: 5px 8px;
+    border-bottom: 1px solid #ebebeb;"><h4 class="name-res" title="Giờ vàng giảm tới 75K" style="    font-size: 14px;
+    font-weight: 700;
+    color: #252525;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-bottom: 1px;
+    padding-top: 5px;">Giờ vàng giảm tới 75K</h4><div class="txt-blue font12" style="font-size: .75rem!important;    color: #0288d1!important;">200 địa điểm</div></div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="products-box">
+          <a ><img alt=""
+                                      src="https://firebasestorage.googleapis.com/v0/b/smartphone-d00d7.appspot.com/o/image-e12ce9e6-220406074410.png?alt=media&token=9c5b3e72-c060-4bd0-8f5e-d723b597da79"
+                                      class="img-fluid rounded"></a>
+        </div>
+        <div class="info-restaurant info-basic-res" style="padding: 5px 8px;
+    border-bottom: 1px solid #ebebeb;"><h4 class="name-res" title="Quán mới lên sàn deal 0Đ"  style="    font-size: 14px;
+    font-weight: 700;
+    color: #252525;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-bottom: 1px;
+    padding-top: 5px;">Quán mới lên sàn deal 0Đ</h4><div class="txt-blue font12" style="font-size: .75rem!important;    color: #0288d1!important;">200 địa điểm</div></div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="products-box">
+          <a ><img alt=""
+                                      src="https://firebasestorage.googleapis.com/v0/b/smartphone-d00d7.appspot.com/o/image-f90c509c-220724214613.jpeg?alt=media&token=7178e525-d26a-4cc1-8800-3a591893c131"
+                                      class="img-fluid rounded"></a>
+        </div>
+        <div class="info-restaurant info-basic-res" style="padding: 5px 8px;
+    border-bottom: 1px solid #ebebeb;"><h4 class="name-res" title="Thứ 3 Freeship tới 35k"  style="    font-size: 14px;
+    font-weight: 700;
+    color: #252525;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-bottom: 1px;
+    padding-top: 5px;">Thứ 3 Freeship tới 35k</h4><div class="txt-blue font12" style="font-size: .75rem!important;    color: #0288d1!important;">200 địa điểm</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section pt-5 pb-5 products-section">
+  <div class="container">
+    <div class="section-header text-center">
+      <h2>Đề xuất cho bạn</h2>
+      <p>Những quán ăn ngon nhất, nhiều ưu đãi đang được mọi người quan tâm</p>
+      <span class="line"></span>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="owl-carousel-four owl-theme">
+          <owl-carousel-o [options]="customOptions">
+            <ng-template carouselSlide *ngFor="let listMerchant of listGoldMerchant">
+              <div routerLink="/detail-restaurant/{{listMerchant.id}}" class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+                <div class="list-card-image">
+                  <div class="favourite-heart text-danger position-absolute"><a><i
+                    class="icofont-heart"></i></a></div>
+                  <div class="member-plan position-absolute"><span class="badge badge-warning">Quán Đặc Biệt</span>
+                  </div>
+                  <a>
+                    <div class="tag-preferred" style="    text-transform: none;
+    position: absolute;
+    background: #f13233;
+    color: #fff;
+    bottom: 5px;
+    left: 7px;
+    z-index: 1;
+    padding: 3px 5px;margin-bottom: 11px;"><i class="fa fa-thumbs-up" aria-hidden="true"></i>Yêu thích
+                    </div>
+                    <img src="{{listMerchant.avatar}}" class="img-fluid item-img" style="height: 200px;width: 100%">
+                  </a>
+                </div>
+                <div class="p-3 position-relative">
+                  <div class="list-card-body">
+                    <h6 class="mb-1">
+
+                      <span class="icon icon-quality-merchant"
+                                           title="Đây là 1 trong những Merchant được đánh giá cao nhất tại TNAG">
+                        <img
+                      src="https://firebasestorage.googleapis.com/v0/b/smartphone-d00d7.appspot.com/o/partner2x.png?alt=media&token=b8c2b98d-09ef-403f-80b2-11433282a4a3"
+                      style="margin-bottom:3px; width: 17px;height: 17px;"><a class="text-black" style="font-weight: bold;">{{listMerchant.name}}</a></span>
+
+                    </h6>
+                    <p class="text-gray mb-3"><i class="icofont-location-arrow"></i> Địa chỉ: {{listMerchant.address}}</p>
+                    <p class="text-gray mb-3 time"><span
+                      class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i
+                      class="icofont-wall-clock"></i> Giờ hoạt động: {{listMerchant.openTime}} - {{listMerchant.closeTime}}</span></p>
+                  </div>
+                  <hr>
+                  <div class="list-card-badge">
+                    <span class="badge badge-success">SĐT</span> <small style="margin-left: 2px">{{listMerchant.phoneNumber}} | Freeship bán kính 3km</small>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+
+          </owl-carousel-o>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section pt-5 pb-5 bg-white becomemember-section border-bottom">
+  <div class="container">
+    <div class="section-header text-center white-text">
+      <h2>Những món ăn được mua nhiều nhất</h2>
+      <span class="line"></span>
+    </div>
+    <div class="row">
+      <div *ngFor="let food of listSoldTop8" class="col-md-3 col-sm-6 mb-4">
+        <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+          <div class="list-card-image">
+            <div class="favourite-heart text-danger position-absolute"><a><i
+              class="icofont-heart"></i></a></div>
+            <div class="member-plan position-absolute"><span class="badge badge-dark"></span>
+            </div>
+            <a routerLink="detail-food/{{food.id}}">
+              <div class="tag-preferred" style="    text-transform: none;
+    position: absolute;
+    background: #f13233;
+    color: #fff;
+    bottom: 5px;
+    left: 7px;
+    z-index: 1;
+    padding: 3px 5px;margin-bottom: 11px;"><i class="fa fa-thumbs-up" aria-hidden="true"></i>Yêu thích
+              </div>
+              <img src="{{food.image}}" style="height: 200px;width: 100%" class="img-fluid item-img">
+            </a>
+          </div>
+          <div class="p-3 position-relative">
+            <div class="list-card-body">
+
+              <h6 class="mb-1">
+                <span class="icon icon-quality-merchant"
+                      title="Đây là 1 trong những món ăn được đặt nhiều nhất tại TNAG"><img
+                  src="https://firebasestorage.googleapis.com/v0/b/smartphone-d00d7.appspot.com/o/partner2x.png?alt=media&token=b8c2b98d-09ef-403f-80b2-11433282a4a3"
+                  style="margin-right: 2px;margin-bottom:3px; width: 17px;height: 17px;"></span>
+                <a routerLink="detail-food/{{food.id}}" class="text-black" style="font-weight: bold;">{{food.name}}</a></h6>
+              <p class="text-gray mb-2"><i class="icofont-location-arrow"></i> Địa Chỉ: {{food.merchant.address}}</p>
+              <p class="text-gray mb-3 time"><span
+                class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i
+                class="icofont-wall-clock"></i> {{food.merchant.openTime}} - {{food.merchant.closeTime}}</span></p>
+
+            </div>
+            <hr>
+            <div class="list-card-badge" style="text-decoration-color: black !important;">
+              <strong><p
+                class="float-right text-black-200"> Giá: {{food.price| currency: 'VND':''}} VND</p></strong>
+<!--              <span class="badge badge-success">Giảm</span> <small style="margin-left: 2px">{{food.priceDiscount| currency: 'VND':''}} | Sử dụng Coupon TNAG001</small>-->
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+

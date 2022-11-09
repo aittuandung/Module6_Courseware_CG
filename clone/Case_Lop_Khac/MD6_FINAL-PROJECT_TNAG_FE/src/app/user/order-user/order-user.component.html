@@ -1,0 +1,45 @@
+<div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h4 style="display: inline-block" class="font-weight-bold mt-0 mb-4">Lịch sử đơn hàng</h4>
+    </div>
+    <div class="col-sm">
+
+      <form [formGroup]="form">
+        <div class="input-group rounded">
+          <input (input)="searchOrder()" formControlName="search" type="search" class="form-control rounded"
+                 placeholder="Tìm kiếm" aria-label="Search" aria-describedby="search-addon"/>
+          <span class="input-group-text border-0" id="search-food">
+            <i class="fas fa-search"></i>
+          </span>
+        </div>
+      </form>
+    </div>
+  </div>
+  <br><br>
+<!--</div>-->
+
+<!--  <h4 style="display: inline-block" class="font-weight-bold mt-0 mb-4">Lịch sử đơn hàng</h4>-->
+<!--  <div class="col-sm">-->
+
+<!--    <form [formGroup]="form">-->
+<!--      <div class="input-group rounded">-->
+<!--        <input (input)="searchOrder()" formControlName="search" type="search" class="form-control rounded"-->
+<!--               placeholder="Tìm kiếm" aria-label="Search" aria-describedby="search-addon"/>-->
+<!--        <span class="input-group-text border-0" id="search-food">-->
+<!--            <i class="fas fa-search"></i>-->
+<!--          </span>-->
+<!--      </div>-->
+<!--    </form>-->
+  </div>
+  <div>
+    <div  *ngFor="let order of listOrder| paginate: {itemsPerPage: 5, currentPage: p}" class="bg-white card mb-4 order-list shadow-sm">
+              <app-order-detail-user order_id="{{order.id}}" merchant_name="{{order.merchant.name}}" merchant_address="{{order.merchant.address}}"
+              orderStatus_nameOrderStatus="{{order.orderStatus.nameOrderStatus}}" order_createAt="{{order.createAt}}"
+              ></app-order-detail-user>
+    </div>
+  </div>
+  <pagination-controls class="btn btn-sm btn-outline-primary" class="myPagination" (pageChange)="p = $event">
+  </pagination-controls>
+</div>

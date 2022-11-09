@@ -1,0 +1,37 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h4 class="font-weight-bold mt-0 mb-4">Quản lý đơn hàng</h4>
+    </div>
+    <div class="col-sm">
+
+<!--      <form>-->
+<!--        <div class="input-group rounded">-->
+<!--          <input formControlName="name" type="search" class="form-control rounded"-->
+<!--                 placeholder="Search" aria-label="Search" aria-describedby="search-addon"/>-->
+<!--          <span class="input-group-text border-0" id="search-food">-->
+<!--            <i class="fas fa-search"></i>-->
+<!--          </span>-->
+<!--        </div>-->
+<!--      </form>-->
+    </div>
+  </div>
+</div>
+<br><br>
+<div class="tab-content" id="myTabContent">
+
+  <div class="tab-pane fade show active" id="orders" role="tabpanel"
+       aria-labelledby="orders-tab">
+    <div class="col-sm">
+      <nav class="nav nav-pills nav-fill">
+        <a class="nav-item nav-link" routerLink="../oder-merchant">Chờ xác nhận</a>
+        <a class="nav-item nav-link" routerLink="order-merchant-completed">Đã hoàn thành</a>
+        <a class="nav-item nav-link" routerLink="order-merchant-cancel">Đã hủy</a>
+      </nav>
+    </div>
+    <br><br>
+    <router-outlet ></router-outlet>
+
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<section class="restaurant-detailed-banner">
+  <div class="text-center">
+    <img class="img-fluid cover" routerLink="edit-merchant-banner" src="{{merchant.imageBanner}}">
+  </div>
+  <div class="restaurant-detailed-header">
+    <div class="container">
+      <div class="row d-flex align-items-end">
+        <div class="col-md-8">
+          <div class="restaurant-detailed-header-left ">
+            <img class="img-fluid mr-3 float-left" routerLink="edit-merchant-avatar" alt="osahan" src="{{merchant.avatar}}">
+            <h6 class="text-white">{{merchant.name}}</h6>
+            <p class="text-white mb-1"><i class="icofont-location-pin"></i> {{merchant.phoneNumber}} </p>
+            <p class="text-white mb-1"><i class="icofont-location-pin"></i> {{merchant.address}} </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="restaurant-detailed-header-right text-right">
+            <p class="mb-0 text-black font-weight-bold"><a class="text-primary mr-3"
+                                                           data-toggle="modal" data-target="#edit-profile-modal"
+                                                           href="#" routerLink="edit-merchant"><i
+              class="icofont-ui-edit"></i>Sửa</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

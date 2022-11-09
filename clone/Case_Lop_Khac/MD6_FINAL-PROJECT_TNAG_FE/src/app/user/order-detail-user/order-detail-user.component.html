@@ -1,0 +1,39 @@
+<div  class="gold-members p-4">
+  <a>
+    <div class="media">
+      <div class="media-body">
+        <span class="float-right text-info"># Mã đơn hàng: {{order_id}}</span>
+        <h6 class="mb-2">
+          <a class="text-black">   <h5>{{merchant_name}}</h5>
+          </a>
+        </h6>
+        <p class="text-gray mb-1">Địa chỉ: {{merchant_address}}
+        </p>
+        <p class="text-gray mb-1">Tình trạng đơn hàng: {{orderStatus_nameOrderStatus}}
+        </p>
+        <p class="text-gray mb-1">Thời gian đặt hàng: {{order_createAt}}
+        </p>
+        <hr>
+<div class="media">
+  <div class="media-body">
+    <div *ngFor="let order of orderDetailByOrder" class="form-check">
+      <div>
+<!--        <input mdbCheckbox class="form-check-input" type="checkbox" value=""/>-->
+        <img  src="{{order.food.image}}" style="width: 50px; height: 50px;" alt="Generic placeholder image">
+        <h6 style="margin: 0 10px; display: inline-block">{{order.food.name}}</h6>
+        <p style="display: inline-block">Số lượng: {{order.quantity}} = {{order.price| currency: 'VND':''}} VND</p>
+      </div>
+      <br>
+    </div>
+
+    <hr>
+    <p class="mb-0 text-black text-primary pt-2"><span
+      class="text-black font-weight-bold"> Tổng tiền thanh toán:</span> {{total| currency: 'VND':''}} VND
+    </p>
+  </div>
+</div>
+<hr>
+</div>
+</div>
+</a>
+</div>

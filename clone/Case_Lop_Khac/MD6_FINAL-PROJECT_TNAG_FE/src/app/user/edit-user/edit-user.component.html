@@ -1,0 +1,43 @@
+<body class="bg-white">
+<div class="container-fluid">
+  <div class="row no-gutter">
+    <div class="col-md-12 col-lg-12">
+      <div class="login d-flex align-items-center py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 col-lg-12 mx-auto pl-5 pr-5">
+              <h3 class="login-heading mb-4">Cập nhật thông tin người dùng</h3>
+              <div>
+                <div>
+                  <p *ngIf="mess" style="color: red">{{mess}}</p>
+                </div>
+              </div>
+              <form [formGroup]="form" (submit)="update()">
+                <div class="form-label-group">
+                  <input type="text" id="inputName" formControlName="name" class="form-control"
+                         placeholder="">
+                  <label for="inputName">Tên người dùng</label>
+                </div>
+                <div class="form-label-group">
+                  <input type="text" id="phonenumber" formControlName="phoneNumber" class="form-control"
+                         placeholder="">
+                  <label for="phonenumber">Số điện thoại</label>
+                </div>
+                <button class="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2">
+                  Cập nhật thông tin
+                </button>
+                <a routerLink="/user"
+                   class="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2">Trang
+                  chủ</a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+

@@ -1,0 +1,148 @@
+<section class="restaurant-detailed-banner">
+  <div class="text-center">
+    <img class="img-fluid cover" src="{{food.merchant.imageBanner}}">
+  </div>
+  <div class="restaurant-detailed-header">
+    <div class="container">
+      <div class="row d-flex align-items-end">
+        <div class="col-md-8">
+          <div class="restaurant-detailed-header-left">
+            <img class="img-fluid mr-3 float-left" alt="osahan" src="{{food.merchant.avatar}}">
+            <h2 class="text-white">{{food.merchant.name}}</h2>
+            <p class="text-white mb-1"><i class="icofont-location-pin"></i>  {{food.merchant.address}}
+            </p>
+            <p class="text-white mb-0"><i class="icofont-food-cart"></i>{{food.merchant.phoneNumber}}</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="restaurant-detailed-header-right text-right">
+            <button class="btn btn-success" type="button"><i class="icofont-clock-time"></i> {{food.merchant.openTime.substring(0,5)}}
+              - {{food.merchant.closeTime.substring(0,5)}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="offer-dedicated-nav bg-white border-top-0 shadow-sm">
+  <div class="container">
+    <div class="row">
+      <div routerLink="/detail-restaurant/{{food.merchant.id}}" class="col-md-12">
+                    <span class="restaurant-detailed-action-btn float-right">
+                        <button class="btn btn-light btn-sm border-light-btn" type="button"><i
+                          class="icofont-cauli-flower text-success"></i> Xem cửa hàng</button>
+                    </span>
+        <ul class="nav" id="pills-tab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="pills-order-online-tab" data-toggle="pill"
+               href="#pills-order-online" role="tab" aria-controls="pills-order-online"
+               aria-selected="true">Mua hàng</a>
+          </li>
+          <!-- <li class="nav-item">
+              <a class="nav-link" id="pills-reviews-tab" data-toggle="pill" href="#pills-reviews"
+                  role="tab" aria-controls="pills-reviews" aria-selected="false">Đánh giá & Reviews</a>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="offer-dedicated-body pt-2 pb-2 mt-4 mb-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="offer-dedicated-body-left">
+          <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-order-online" role="tabpanel"
+                 aria-labelledby="pills-order-online-tab">
+              <div id="#menu" class="bg-white rounded shadow-sm p-4 mb-4">
+                <div class="address-map float-right ml-5">
+                  <div class="mapouter">
+                    <img style="width: 200px; height: 130px"  class="img-fluid" src="{{food.image}}">
+                  </div>
+                </div>
+                <h5 class="mb-4">{{food.name}}</h5>
+                <p class="mb-3">
+                  <span style="margin-right: 13px" class="fa fa-location-arrow locationicon"></span>{{food.merchant.address}}
+                </p>
+                <p class="mb-2 text-black"><i class="icofont-phone-circle text-primary mr-2"></i>
+                  {{food.merchant.phoneNumber}}</p>
+                <p class="mb-2 text-black"><i class="icofont-dollar text-primary mr-2"></i> <a
+                  data-cfemail="97fef6faf8e4f6fff6f9d7f0faf6fefbb9f4f8fa">{{food.price| currency: 'VND':''}} VND</a>
+                </p>
+                <p class="mb-2 text-black"><i class="icofont-clock-time text-primary mr-2"></i>
+                  Hôm nay {{food.merchant.openTime.substring(0,5)}} – {{food.merchant.closeTime.substring(0,5)}}
+                  <span class="badge badge-success"> Đang mở cửa </span>
+                </p>
+                <hr class="clearfix">
+                <p class="text-black mb-0"> {{food.description}}</p>
+                <hr class="clearfix">
+                <div class="owl-theme owl-carousel-five offers-interested-carousel mb-3">
+                  <owl-carousel-o [options]="customOptions">
+                    <ng-template carouselSlide *ngFor="let item of listImage">
+                      <div>
+                        <a>
+                          <img style="width: 200px; height: 130px" class="img-fluid" src="{{item.image}}" alt="">
+                        </a>
+                      </div>
+                    </ng-template>
+                  </owl-carousel-o>
+                </div>
+                <div class="border-btn-main mb-4">
+                  <a (click)="addToCart()" class="border-btn btn generator-bg btn-success mr-2"> Mua ngay</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+<!--        <app-cart-detail-restaurant></app-cart-detail-restaurant>-->
+<!--          *ngIf="isLogin&&isUser&&!isMerchant&&!isCheckAdmin"-->
+        <div *ngIf="(isLogin&&isUser&&!isMerchant&&!isCheckAdmin)||(isLogin&&isUser&&isMerchant&&!isCheckAdmin)"
+             class="generator-bg rounded shadow-sm mb-4 p-4 osahan-cart-item">
+          <h5 class="mb-1 text-white">Danh sách đặt hàng</h5>
+          <p class="mb-4 text-white">{{count}} sản phẩm</p>
+          <div class="bg-white rounded shadow-sm mb-2">
+            <div *ngFor="let detail of cartDetail" class="gold-members p-2 border-bottom">
+               <span class="count-number float-right">
+                                    <button  (click)="decreaseFromCart(detail.food.id)" class="btn btn-outline-secondary  btn-sm left dec"> <i
+                                      class="icofont-minus"></i> </button>
+                                    <input class="count-number-input" type="text" value="{{detail.quantity}}" readonly="">
+                                    <button (click)="increaseFromCart(detail.food.id)" class="btn btn-outline-secondary btn-sm right inc"> <i
+                                      class="icofont-plus"></i> </button>
+                                </span>
+              <p style="margin-right: 5px" class="text-gray mb-0 float-right ml-2">{{detail.totalPrice| currency: 'VND':''}} VND</p>
+              <div class="media">
+                <div class="mr-2"><i class="icofont-ui-press text-danger food-item"></i></div>
+                <div class="media-body">
+                  <p class="mt-1 mb-0 text-black">{{detail.food.name}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mb-2 bg-white rounded p-2 clearfix">
+            <img class="img-fluid float-left" src="assets/template/img/wallet-icon.png">
+            <h6 class="font-weight-bold text-right mb-2">Tổng đơn: <span
+              class="text-danger">{{total| currency: 'VND':''}}</span> VND</h6>
+            <!--            <h6 class="font-weight-bold text-right mb-2">Giảm giá: <span-->
+            <!--              class="text-danger">0</span> vnđ</h6>-->
+            <h6 class="font-weight-bold text-right mb-2">Thanh toán: <span
+              class="text-danger">{{total| currency: 'VND':''}}</span> VND</h6>
+            <!-- <p class="seven-color mb-1 text-right">Extra charges may apply</p> -->
+            <!--            <p class="text-black mb-0 text-right">Tiết kiệm 30.000 vnđ</p>-->
+          </div>
+          <a routerLink="/user" class="btn btn-success btn-block btn-lg">Đặt hàng ngay <i
+            class="icofont-long-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</section>
+
+
+
+

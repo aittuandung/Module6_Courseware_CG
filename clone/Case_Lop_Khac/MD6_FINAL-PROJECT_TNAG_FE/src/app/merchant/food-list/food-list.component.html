@@ -1,0 +1,99 @@
+
+<br>
+<div class="tab-content" id="myTabContent">
+
+  <div class="tab-pane fade show active" id="orders" role="tabpanel"
+       aria-labelledby="orders-tab">
+
+
+    <!----------------------------------->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+          <button id="btn-create-food" type="button" class="btn btn-sm btn-primary btn-lg" routerLink="create-food">THÊM MỚI
+          </button>
+        </div>
+        <div class="col-sm">
+
+          <form [formGroup]="form">
+            <div class="input-group rounded">
+              <input (input)="searchByFoodName()" formControlName="name" type="search" class="form-control rounded"
+                     placeholder="Tìm kiếm" aria-label="Search" aria-describedby="search-addon"/>
+              <span class="input-group-text border-0" id="search-food">
+            <i class="fas fa-search"></i>
+          </span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <br><br>
+    <!----------------------------------->
+
+    <div>
+      <div *ngFor="let item of listFoodMerchant | paginate: {itemsPerPage: 5, currentPage: p}">
+
+        <div class="bg-white card mb-4 order-list shadow-sm">
+          <div class="gold-members p-4">
+            <a>
+              <div class="media">
+                <img class="mr-4" src="{{item.image}}" alt="Generic placeholder image">
+                <div class="media-body">
+                  <span class="float-right text-info">Giao hàng từ thứ 2 đến thứ 6 | {{merchant.openTime.substring(0,5)}}
+                     - {{merchant.closeTime.substring(0, 5)}}  <i class="icofont-check-circled text-success"></i></span>
+                  <h6 class="mb-2">
+                    <span class="text-black">{{item.name}}
+                    </span>
+                  </h6>
+                  <p class="text-gray mb-1"><i class="icofont-location-arrow"></i> {{merchant.address}}
+                  </p>
+                  <p class="text-gray mb-3"><i class="icofont-list"></i> ĐÃ BÁN:
+                    {{item.sold}} <br>
+                    <i class="fa fa-dollar"></i>
+<!--                    <i class="material-symbols-outlined ml-2"></i>-->
+                    GIÁ: {{item.price | currency: 'VND':''}} VND</p>
+                  <p class="text-dark">{{item.description}}
+                  </p>
+                  <hr>
+                  <div class="float-right">
+                    <a class="btn btn-sm btn-primary" routerLink="edit-food/{{item.id}}"><i
+                      ></i> SỬA </a>
+                    <a  class="btn btn-sm btn-outline-primary button-hover" data-toggle="modal" data-target="#exampleModal"><i
+                      ></i> XÓA </a>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Xóa món ăn</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body" style="color: red">
+                            Bạn có chắc chắn muốn xóa?!
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy bỏ</button>
+                            <a (click)="deleteFood(item.id)" routerLink="/merchant" type="button" class="btn btn-primary" data-dismiss="modal">Xác nhận</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Modal -->
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <pagination-controls class="btn btn-sm btn-outline-primary" class="myPagination" (pageChange)="p = $event">
+      </pagination-controls>
+    </div>
+
+  </div>
+</div>
+
+
+

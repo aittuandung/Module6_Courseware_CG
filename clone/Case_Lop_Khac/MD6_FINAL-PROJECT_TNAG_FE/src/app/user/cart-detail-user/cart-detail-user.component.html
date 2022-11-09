@@ -1,0 +1,148 @@
+
+      <div class="gold-members p-4">
+        <h6 class="mb-2">
+          <a routerLink="/detail-restaurant/{{merchant_id}}" class="text-black"><h4>{{merchant_name}}</h4>
+          </a>
+        </h6>
+        <br>
+          <div class="row">
+            <div class="col-md-12">
+              <div *ngIf="cartDetailByMerchant!=null" class="bg-white rounded border shadow-sm mb-4">
+                <div *ngFor="let cart of cartDetailByMerchant" class="menu-list p-3 border-bottom">
+                  <div class="row">
+                    <div class="col-1">
+                      <input id="cart-detail-user-{{cart.id}}" class="form-check-input" type="checkbox" value="{{cart}}"
+                             [(ngModel)]="cart.checked"/>
+                    </div>
+                    <div class="col-1">
+                      <img class="mr-3 rounded-pill" src="{{cart.food.image}}" alt="Generic placeholder image">
+                    </div>
+                    <div class="col-6">
+                      <h6 class="mb-1">{{cart.food.name}}</h6>
+                      <p class="text-gray mb-0">Số lượng: {{cart.quantity}} = {{cart.totalPrice| currency: 'VND':''}}
+                        VND</p>
+                    </div>
+                    <div class="col-2">
+                <span class="count-number float-right">
+                  <button (click)="decreaseFromCart(cart.food.id)"
+                          class="btn btn-outline-secondary  btn-sm left dec"> <i class="icofont-minus"></i> </button>
+                    <input class="count-number-input cart-detail-btn" type="text" value="{{cart.quantity}}" readonly="">
+                  <button (click)="increaseFromCart(cart.food.id)"
+                          class="btn btn-outline-secondary btn-sm right inc"> <i class="icofont-plus"></i> </button>
+                </span>
+                    </div>
+                    <div class="col-2">
+                <span class="count-number float-right"><a data-toggle="modal" data-target="#exampleModal"
+                                                          class="btn btn-outline-secondary btn-sm xoa">Xóa</a>
+                </span>
+                    </div>
+                  </div>
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                       aria-labelledby="exampleModalLabel"
+                       aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Xóa món ăn</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body" style="color: red">
+                          Bạn có chắc chắn muốn xóa?!
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy bỏ</button>
+                          <a (click)="deleteFromCart(cart.id)" routerLink="/user" type="button" class="btn btn-primary"
+                             data-dismiss="modal">Xác nhận</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Modal -->
+
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="perchaseModal" tabindex="-1" role="dialog"
+                       aria-labelledby="exampleModalLabel"
+                       aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="perchaseModalLabel">Xác nhận mua hàng</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body" style="color: red">
+                          <div class="bg-white p-4 shadow-lg">
+                            <div class="osahan-track-order-detail po">
+                              <h5 class="mt-0 mb-3">Chi tiết đơn hàng</h5>
+                              <div class="row">
+                                <div class="col-md-5">
+                                  <small>Cửa hàng</small>
+                                  <h6 class="mb-1 mt-1"><a class="text-black"><i
+                                    class="icofont-food-cart"></i>{{cart.merchant.name}}
+                                  </a>
+                                  </h6>
+                                  <p class="text-gray mb-5">{{cart.merchant.address}}</p>
+                                  <small>Giao tới</small>
+                                  <h6 class="mb-1 mt-1"><span class="text-black"><i class="icofont-map-pins"></i>
+                                    {{cart.cart.customer.name}}
+                                        </span>
+                                  </h6>
+                                  <p class="text-gray mb-0">{{cart.cart.customer.address}}
+                                  </p>
+                                </div>
+                                <div class="col-md-7">
+                                  <!--                              <div class="mb-2"><small><i class="icofont-list"></i> 8 sản phẩm</small></div>-->
+                                  <p class="mb-2" *ngFor="let cart of cartDetailDTO"><i
+                                    class="icofont-ui-press text-danger food-item"></i> {{cart.food.name}}
+                                    x {{cart.quantity}} <span
+                                      class="float-right text-secondary">{{cart.totalPrice| currency: 'VND':''}}
+                                      VND</span>
+                                  </p>
+                                  <!--                              <p class="mb-2"><i class="icofont-ui-press text-success food-item"></i>  Cơm tấm sài gòn x 1 <span class="float-right text-secondary">$209</span></p>-->
+                                  <!--                              <p class="mb-2"><i class="icofont-ui-press text-success food-item"></i> Bún bò huế x 1 <span class="float-right text-secondary">$133</span></p>-->
+                                  <!--                              <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Bia gấu trắng x 1 <span class="float-right text-secondary">$314</span></p>-->
+                                  <hr>
+                                  <p class="mb-0 font-weight-bold text-black">Thanh toán: <span
+                                    class="float-right text-secondary">{{pretotal| currency: 'VND':''}} VND</span></p>
+                                  <!-- <p class="mb-0 text-info"><small>Paid via Credit/Debit card
+                                          <span class="float-right text-danger">$620 OFF</span></small>
+                                  </p> -->
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy bỏ</button>
+                          <a (click)="createOrder()" type="button" class="btn btn-primary"
+                             data-dismiss="modal">Xác nhận</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Modal -->
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+
+          </div>
+
+          <hr>
+          <div class="float-right">
+            <a (click)="getCartDTO()" data-toggle="modal" data-target="#perchaseModal" class="btn btn-sm btn-primary"><i
+            ></i> Mua hàng</a>
+          </div>
+          <p class="mb-0 text-black text-primary pt-2"><span
+            class="text-black font-weight-bold"> Tổng tiền thanh toán:</span> {{total| currency: 'VND':''}} VND
+          </p>
+      </div>
+
+

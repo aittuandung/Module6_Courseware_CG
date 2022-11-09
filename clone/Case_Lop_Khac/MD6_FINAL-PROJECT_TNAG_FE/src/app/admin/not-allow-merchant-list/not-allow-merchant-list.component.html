@@ -1,0 +1,44 @@
+<div class="tab-pane fade show active" id="orders" role="tabpanel"
+     aria-labelledby="orders-tab">
+  <h4 class="font-weight-bold mt-0 mb-4">Danh sách cửa hàng chưa được duyệt</h4>
+  <div *ngFor="let item of listRequestMerchant | paginate:{ itemsPerPage: 5,
+                                                        currentPage: page,
+                                                         totalItems:totalElements}" class="bg-white card mb-4 order-list shadow-sm">
+    <div class="gold-members p-4">
+      <a >
+        <div class="media">
+          <img class="mr-4" src="{{item.avatar}}" alt="Generic placeholder image">
+          <div class="media-body">
+                                                    <span class="float-right text-info">{{item.openTime}} - {{item.closeTime}}
+                                                       <i class="icofont-check-circled text-success"></i></span>
+            <h6 class="mb-2">
+              <a href="detail.html" class="text-black">{{item.name}}
+              </a>
+            </h6>
+            <p class="text-gray mb-1"><i class="icofont-location-arrow"></i> Địa chỉ: {{item.address}}
+            </p>
+            <p class="text-gray mb-3">
+              <i class="icofont-clock-time"></i> Giờ mở cửa: {{item.openTime}}
+              <i class="icofont-clock-time ml-2">
+              </i> Giờ đóng cửa: {{item.closeTime}}
+            </p>
+<!--            <p class="text-dark">Veg Masala Roll x 1, Veg Burger x 1, Veg Penne-->
+<!--              Pasta in Red Sauce x 1-->
+<!--            </p>-->
+            <hr>
+            <div class="float-right">
+              <button class="btn btn-sm btn-primary" (click)="acceptMerchant(item.id)"><i
+                class="icofont-ui-check"></i> Đồng ý</button>
+              <a class="btn btn-sm btn-ouline-primary button-hover" (click)="refuseMerchant(item.id)"><i
+                class="icofont-ui-close"></i> Từ chối</a>
+            </div>
+            <!--                        <p class="mb-0 text-black text-primary pt-2"><span-->
+            <!--                          class="text-black font-weight-bold"> Total Paid:</span> $300-->
+            <!--                        </p>-->
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div>

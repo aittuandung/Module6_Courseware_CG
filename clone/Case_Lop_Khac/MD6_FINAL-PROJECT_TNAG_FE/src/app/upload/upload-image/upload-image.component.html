@@ -1,0 +1,16 @@
+<div>
+
+  <div *ngIf="checkUploadAvatar" class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <div *ngIf="downloadURL" style="margin-bottom: 10px; margin-top: 10px">
+    <img [src]="downloadURL" style="width: 100px; height: 100px">
+  </div>
+  <br>
+  <input type="file" accept="image/png, image/gif, image/jpeg" (change)="onFileChanged($event)"><br>
+<!--  <mat-spinner *ngIf="checkUploadAvatar"></mat-spinner>-->
+<!--  <button *ngIf="downloadURL?!selectedFile:selectedFile"-->
+<!--          (click)="onUpload()">Upload Avatar</button>-->
+
+</div>
+

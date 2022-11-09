@@ -1,0 +1,58 @@
+<div>
+  <form [formGroup]="form">
+    <div class="input-group rounded">
+      <input formControlName="name" type="search" class="form-control rounded"
+             placeholder="Search" aria-label="Search" aria-describedby="search-addon" (input)="searchWaitingList()">
+      <span class="input-group-text border-0" id="search-food">
+            <i class="fas fa-search"></i>
+          </span>
+    </div>
+  </form>
+  <br>
+  <div *ngFor="let order of listWaitingOrder | paginate:  {itemsPerPage: 3, currentPage: p}">
+    <div class="bg-white card mb-4 order-list shadow-sm">
+      <div class="gold-members p-4">
+        <a routerLink="order-merchant-detail">
+          <div class="media">
+            <img class="mr-4" src="{{order.merchant.avatar}}" alt="Generic placeholder image">
+            <div class="media-body">
+              <span class="float-right text-info">Mã đơn hàng: {{order.id}}<i class="icofont-check-circled text-success"></i></span>
+              <h6 class="mb-2">
+                <a class="text-black">   <h5>Tên nhà hàng: {{order.merchant.name}}</h5>
+                </a>
+              </h6>
+              <p class="text-gray mb-1"><i class="icofont-user"> Tên khách hàng: {{order.customer.name}}</i>
+              </p>
+              <p class="text-gray mb-3"><i class="icofont-list"></i> Trạng thái đơn hàng: {{order.orderStatus.nameOrderStatus}}
+                <br>
+                <i class="icofont-clock-time"></i>
+                Ngày khởi tạo: {{order.createAt}}
+              </p>
+              <p class="text-dark">
+              </p>
+              <hr>
+              <app-order-merchant-detail  order_id="{{order.id}}" merchant_name="{{order.merchant.name}}" merchant_address="{{order.merchant.address}}"
+                              orderStatus_nameOrderStatus="{{order.orderStatus.nameOrderStatus}}" order_createAt="{{order.createAt}}"></app-order-merchant-detail>
+<!--                            <app-order-merchant-detail></app-order-merchant-detail>-->
+              <!--              <div class="float-right">-->
+              <!--                <a class="btn btn-sm btn-primary"><i-->
+              <!--                ></i> Mua hàng</a>-->
+              <!--              </div>-->
+              <div class="float-right">
+                <a class="btn btn-sm btn-primary" style="color: white" (click)="acceptOrder(order.id)"><i
+                ></i> Xác nhận</a>
+                <a class="btn btn-sm btn-outline-primary" (click)="denyOrder(order.id)"><i
+                ></i> Từ chối</a>
+              </div>
+              <p class="mb-0 text-black text-primary pt-2"><span
+                class="text-black font-weight-bold"> Total Paid:</span> {{order.priceTotal| currency: 'VND':''}} VND
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <pagination-controls class="btn btn-sm btn-outline-primary" class="myPagination" (pageChange)="p = $event">
+  </pagination-controls>
+</div>

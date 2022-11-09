@@ -1,0 +1,11 @@
+<div>
+  <h4 class="font-weight-bold mt-0 mb-4">Chi tiết giỏ hàng</h4>
+  <div *ngIf="listRestaurant!=null" >
+    <div *ngFor="let res of listRestaurant | paginate: {itemsPerPage: 5, currentPage: p}, let i = index " class="bg-white card mb-4 order-list shadow-sm">
+
+          <app-cart-detail-user merchant_id = '{{res.id}}' merchant_name="{{res.name}}"></app-cart-detail-user>
+    </div>
+  </div>
+  <pagination-controls  *ngIf="listRestaurant!=null" class="btn btn-sm btn-outline-primary" class="myPagination" (pageChange)="p = $event">
+  </pagination-controls>
+</div>

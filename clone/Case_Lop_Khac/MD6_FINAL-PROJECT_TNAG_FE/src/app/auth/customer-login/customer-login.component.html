@@ -1,0 +1,49 @@
+
+<div class="container-fluid">
+  <div class="row no-gutter">
+    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+    <div class="col-md-8 col-lg-6">
+      <div class="login d-flex align-items-center py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 col-lg-8 mx-auto pl-5 pr-5">
+              <h3 class="login-heading mb-4">Đăng nhập đi nào, bụng đói rồi!</h3>
+              <form class="form-register" #f="ngForm" (ngSubmit)="f.form.valid && ngSubmit()" novalidate>
+                <ng-container *ngIf="isLogin">
+                  <p class="text-danger">{{status}}</p>
+                </ng-container>
+                <div class="form-label-group">
+                  <input name="username" [(ngModel)]="form.username" [formControl]="emailFormControl" type="email" id="inputEmail" class="form-control"
+                         placeholder="Email" required>
+                  <label for="inputEmail">Email</label>
+                  <ng-container *ngIf="(emailFormControl.touched || f.submitted) && emailFormControl.invalid">
+                    <p *ngIf="emailFormControl.hasError('required')" class="text-danger">Vui lòng điền email!</p>
+<!--                    <p *ngIf="emailFormControl.hasError('email')" class="text-danger">Sai định dạng email! Ex: truanayangi@gmail.com</p>-->
+                  </ng-container>
+                </div>
+                <div class="form-label-group">
+                  <input name="password" [(ngModel)]="form.password" #password="ngModel" type="password" id="inputPassword" class="form-control"
+                         placeholder="Mật khẩu" minlength="6" maxlength="10" required>
+                  <label for="inputPassword">Mật khẩu</label>
+                  <ng-container *ngIf="(password.touched || f.submitted) && password.invalid">
+                    <p *ngIf="password.hasError('required')" class="text-danger">Vui lòng điền mật khẩu!</p>
+<!--                    <p *ngIf="password.hasError('minlength')" class="text-danger">Mật khẩu phải từ 6-10 kí tự!</p>-->
+<!--                    <p *ngIf="password.hasError('maxlength')" class="text-danger">Mật khẩu phải từ 6-10 kí tự!</p>-->
+                  </ng-container>
+                </div>
+                <button class="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2">Đăng nhập</button>
+                <div class="text-center pt-3 dropdown show">
+                  Bạn chưa có tài khoản?
+                  <a class="font-weight-bold" routerLink="../register-customer">Đăng ký ngay</a>
+                </div>
+              </form>
+              <hr class="my-4">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

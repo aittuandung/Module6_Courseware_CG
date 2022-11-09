@@ -1,0 +1,109 @@
+<body class="bg-white">
+<div class="container-fluid">
+  <div class="row no-gutter">
+    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+    <div class="col-md-8 col-lg-6">
+      <div class="login d-flex align-items-center py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 col-lg-8 mx-auto pl-5 pr-5">
+              <h3 class="login-heading mb-4">Trở thành nhà bán hàng tiềm năng của TNAG ngay!</h3>
+              <form class="form-register" #f="ngForm" (ngSubmit)="f.form.valid && register()" novalidate>
+                <ng-container *ngIf="f.submitted">
+                  <p class="text-danger">{{status}}</p>
+                </ng-container>
+                <div class="form-label-group">
+                  <input name="name" [(ngModel)]="form.name" #name="ngModel" type="text" id="inputName"
+                         class="form-control"
+                         placeholder="Tên cửa hàng" required>
+                  <label for="inputName">Tên cửa hàng</label>
+                  <ng-container *ngIf="(name.touched || f.submitted) && name.invalid">
+                    <p *ngIf="name.hasError('required')" class="text-danger">Vui lòng điền tên!</p>
+                  </ng-container>
+                  <div class="form-label-group">
+                    <input name="phone" [(ngModel)]="form.phone" [formControl]="phoneFormControl" type="text"
+                           id="inputPhone" class="form-control"
+                           placeholder="Phone" required>
+                    <label for="inputPhone">Số điện thoại</label>
+                    <ng-container *ngIf="(phoneFormControl.touched || f.submitted) && phoneFormControl.invalid">
+                      <p *ngIf="phoneFormControl.hasError('required')" class="text-danger">Vui lòng điền số điện
+                        thoại!</p>
+                      <p *ngIf="phoneFormControl.hasError('pattern')" class="text-danger">Sai định dạng số điện thoại!</p>
+                    </ng-container>
+                  </div>
+                  <div class="form-label-group">
+                    <input name="username" [(ngModel)]="form.username" [formControl]="emailFormControl" type="email"
+                           id="inputEmail" class="form-control"
+                           placeholder="Email" required>
+                    <label for="inputEmail">Email</label>
+                    <ng-container *ngIf="(emailFormControl.touched || f.submitted) && emailFormControl.invalid">
+                      <p *ngIf="emailFormControl.hasError('required')" class="text-danger">Vui lòng điền email!</p>
+                      <p *ngIf="emailFormControl.hasError('email')" class="text-danger">Sai định dạng email! Ex:
+                        truanayangi@gmail.com</p>
+                    </ng-container>
+                  </div>
+                  <div class="form-label-group">
+                    <input name="password" [(ngModel)]="form.password" #password="ngModel" type="password"
+                           id="inputPassword" class="form-control"
+                           placeholder="Mật khẩu" minlength="6" maxlength="10" required>
+                    <label for="inputPassword">Mật khẩu</label>
+                    <ng-container *ngIf="(password.touched || f.submitted) && password.invalid">
+                      <p *ngIf="password.hasError('required')" class="text-danger">Vui lòng điền mật khẩu!</p>
+                      <p *ngIf="password.hasError('minlength')" class="text-danger">Mật khẩu phải từ 6-10 kí tự!</p>
+                      <p *ngIf="password.hasError('maxlength')" class="text-danger">Mật khẩu phải từ 6-10 kí tự!</p>
+                    </ng-container>
+                  </div>
+                  <div class="form-label-group">
+                    <input name="confirmPassword" [(ngModel)]="form.confirmPassword" #confirmPassword="ngModel"
+                           type="password" id="confirmPassword" class="form-control"
+                           placeholder="Xác nhận mật khẩu" required>
+                    <label for="confirmPassword">Xác nhận mật khẩu</label>
+                    <ng-container *ngIf="(confirmPassword.touched || f.submitted) && confirmPassword.invalid">
+                      <p *ngIf="confirmPassword.hasError('required')" class="text-danger">Vui lòng điền mật khẩu!</p>
+                    </ng-container>
+                  </div>
+                  <div class="form-label-group">
+                    <input name="address" [(ngModel)]="form.address" #address="ngModel" type="text" id="inputAddress"
+                           class="form-control"
+                           placeholder="Địa chỉ" required>
+                    <label for="inputAddress">Địa chỉ</label>
+                    <ng-container *ngIf="(address.touched || f.submitted) && address.invalid">
+                      <p *ngIf="address.hasError('required')" class="text-danger">Vui lòng điền địa chỉ!</p>
+                    </ng-container>
+                  </div>
+                  <div class="form-label-group">
+                    <input name="openTime" [(ngModel)]="form.openTime" #openTime="ngModel" type="time" id="openTime"
+                           class="form-control"
+                           placeholder="Giờ mở cửa" required>
+                    <label for="openTime">Giờ mở cửa</label>
+                    <ng-container *ngIf="(openTime.touched || f.submitted) && openTime.invalid">
+                      <p *ngIf="openTime.hasError('required')" class="text-danger">Vui lòng điền giở mở cửa!</p>
+                    </ng-container>
+                  </div>
+                  <div class="form-label-group">
+                    <input name="closeTime" [(ngModel)]="form.closeTime" #closeTime="ngModel" type="time" id="closeTime"
+                           class="form-control"
+                           placeholder="Giờ đóng cửa" required>
+                    <label for="closeTime">Giờ đóng cửa</label>
+                    <ng-container *ngIf="(closeTime.touched || f.submitted) && closeTime.invalid">
+                      <p *ngIf="closeTime.hasError('required')" class="text-danger">Vui lòng điền giở đóng cửa!</p>
+                    </ng-container>
+                  </div>
+                  <button
+                    class="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2">Đăng
+                    ký
+                  </button>
+                  <div class="text-center pt-3">
+                    Bạn đã có tài khoản? <a routerLink="/merchant-login" class="font-weight-bold">Đăng nhập ngay</a>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+

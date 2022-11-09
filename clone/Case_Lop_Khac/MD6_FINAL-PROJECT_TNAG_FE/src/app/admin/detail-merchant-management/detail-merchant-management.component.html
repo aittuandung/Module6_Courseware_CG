@@ -1,0 +1,71 @@
+<section class="restaurant-detailed-banner">
+  <div class="text-center">
+    <img class="img-fluid cover" src="{{merchant.imageBanner}}">
+  </div>
+  <div class="restaurant-detailed-header">
+    <div class="container">
+      <div class="row d-flex align-items-end">
+        <div class="col-md-8">
+          <div class="restaurant-detailed-header-left ">
+            <img class="img-fluid mr-3 float-left" alt="osahan" src="{{merchant.avatar}}">
+            <h6 class="text-white">{{merchant.name}}</h6>
+            <p class="text-white mb-1"><i class="icofont-location-pin"></i> {{merchant.phoneNumber}} </p>
+            <p class="text-white mb-1"><i class="icofont-location-pin"></i> {{merchant.address}} </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+<!--          <div class="restaurant-detailed-header-right text-right">-->
+<!--            <p class="mb-0 text-black font-weight-bold"><a class="text-primary mr-3"-->
+<!--                                                           data-toggle="modal" data-target="#edit-profile-modal"-->
+<!--                                                           href="#" routerLink="edit-merchant"><i-->
+<!--              class="icofont-ui-edit"></i>Sửa</a></p>-->
+<!--          </div>-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+<section>
+  <div class="col-md-12">
+    <div class="osahan-account-page-right rounded shadow-sm bg-white p-4 h-100">
+  <div class="tab-content" id="myTabContent">
+
+    <div class="tab-pane fade show active" id="orders" role="tabpanel"
+         aria-labelledby="orders-tab">
+
+      <div>
+        <div *ngFor="let item of listFoodMerchant | paginate: {itemsPerPage: 10, currentPage: p}">
+
+          <div class="bg-white card mb-4 order-list shadow-sm">
+            <div class="gold-members p-4">
+                <div class="media">
+                  <img class="mr-4" src="{{item.image}}" alt="Generic placeholder image">
+                  <div class="media-body">
+                  <span class="float-right text-info">Giao hàng Thứ 2 - CN: {{merchant.openTime}}
+                    AM - {{merchant.closeTime}} PM <i class="icofont-check-circled text-success"></i></span>
+                    <h6 class="mb-2">
+                      <h6  class="text-black">{{item.name}}
+                      </h6>
+                    </h6>
+                    <p class="text-gray mb-1"><i class="icofont-location-arrow"></i> {{merchant.address}}
+                    </p>
+                    <p class="text-gray mb-3"><i class="icofont-list"></i> Lượt bán:
+                      {{item.sold}} <br><i class="fa fa-dollar"></i>  Giá: {{item.price}} VND</p>
+                    <p class="text-dark">{{item.description}}
+                    </p>
+                    <hr>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <pagination-controls class="btn btn-sm btn-outline-primary" class="myPagination" (pageChange)="p = $event">
+        </pagination-controls>
+      </div>
+
+    </div>
+  </div>
+    </div>
+  </div>
+</section>

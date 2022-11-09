@@ -1,0 +1,63 @@
+
+<section class="section pt-4 pb-4 osahan-account-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="osahan-account-page-left shadow-sm rounded bg-white h-100">
+          <div class="border-bottom p-4">
+            <div class="osahan-user text-center">
+              <div class="osahan-user-media">
+                <img class="mb-3 rounded-pill shadow-sm mt-1" src="https://firebasestorage.googleapis.com/v0/b/smartphone-d00d7.appspot.com/o/285652382_541903704060974_5931705662190621269_n.jpg?alt=media&token=c48b102d-515a-496d-8ea2-509f0b0e17bb"
+                     alt="gurdeep singh osahan">
+                <div class="osahan-user-media-body">
+                  <h6 class="mb-2">Nguyễn Khắc Bún</h6>
+                  <p class="mb-1">+91 85680-79956</p>
+                  <p>Admin
+                  </p>
+                  <!--                        <p class="mb-0 text-black font-weight-bold"><a class="text-primary mr-3"-->
+                  <!--                                                                       data-toggle="modal" data-target="#edit-profile-modal" href="#"><i-->
+                  <!--                          class="icofont-ui-edit"></i>  Sửa</a></p>-->
+                </div>
+              </div>
+            </div>
+          </div>
+          <ul class="nav nav-tabs flex-column border-0 pt-4 pl-4 pb-4" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" routerLink="/admin" id="orders-tab" data-toggle="tab" href="#orders" role="tab"
+                 aria-controls="orders" aria-selected="true"><i class="icofont-food-cart"></i>
+                Quản lý cửa hàng</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="favourites-tab" data-toggle="tab" href="#favourites" role="tab"
+                 aria-controls="favourites" routerLink="not-allow" aria-selected="false"><i class="icofont-not-allowed"></i>
+                Danh sách chưa duyệt</a>
+            </li>
+            <!--                <ul class="nav nav-tabs flex-column border-0 pt-4 pl-4 pb-4" id="myTab" role="tablist">-->
+            <!--                  <li class="nav-item">-->
+            <!--                    <a class="nav-link active" id="orders-tab" data-toggle="tab" href="#orders" role="tab"-->
+            <!--                       aria-controls="orders" aria-selected="true"><i class="icofont-food-cart"></i>-->
+            <!--                      Đơn hàng của bạn</a>-->
+            <!--                  </li>-->
+            <!--                  <li class="nav-item">-->
+            <!--                    <a class="nav-link" id="favourites-tab" data-toggle="tab" href="#favourites" role="tab"-->
+            <!--                       aria-controls="favourites" aria-selected="false"><i class="icofont-heart"></i>-->
+            <!--                      Yêu thích</a>-->
+            <!--                  </li>-->
+            <!--                  <li class="nav-item">-->
+            <!--                    <a class="nav-link" id="addresses-tab" data-toggle="tab" href="#addresses" role="tab"-->
+            <!--                       aria-controls="addresses" aria-selected="false"><i class="icofont-location-pin"></i>-->
+            <!--                      Địa chỉ giao hàng</a>-->
+            <!--                  </li>-->
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="osahan-account-page-right rounded shadow-sm bg-white p-4 h-100">
+          <div class="tab-content" id="myTabContent">
+           <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

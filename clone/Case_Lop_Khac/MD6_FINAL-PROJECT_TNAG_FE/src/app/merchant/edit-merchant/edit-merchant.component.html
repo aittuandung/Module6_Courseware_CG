@@ -1,0 +1,95 @@
+<body class="bg-white">
+<div class="container-fluid">
+  <div class="row no-gutter">
+    <div class="col-md-12 col-lg-12">
+      <div class="login d-flex align-items-center py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 col-lg-12 mx-auto pl-5 pr-5">
+              <h3 class="login-heading mb-4">Cập nhật thông tin cửa hàng</h3>
+              <div>
+                <div>
+                  <p *ngIf="mess" style="color: red">{{mess}}</p>
+                </div>
+              </div>
+              <form [formGroup]="form" (submit)="update()">
+<!--                <div class="col-md-6 col-lg-6" id="merchant-banner-edit">-->
+<!--                  <img style="width: auto; height: 100px" src="{{merchant.imageBanner}}" alt=""> </div>-->
+<!--                  <div class="form-label-group">-->
+<!--                    <label id="merchant-banner-edit-label" for="inputName">Thay đổi banner cửa hàng</label>-->
+<!--                    <app-upload-image (giveURLtoCreate)="editBanner($event)"></app-upload-image>-->
+<!--                  </div>-->
+<!--                <div class="col-md-6 col-lg-6" id="merchant-avatar-edit">-->
+<!--                  <img style="width: auto; height: 100px" src="{{merchant.avatar}}" alt=""></div>-->
+<!--                  <div class="form-label-group">-->
+<!--                    <label id="merchant-avatar-edit-label" for="inputName">Thay đổi ảnh đại diện cửa hàng</label>-->
+<!--                    <app-upload-image (giveURLtoCreate)="editAvatar($event)"></app-upload-image>-->
+<!--                  </div>-->
+
+<!--                <div hidden class="form-label-group">-->
+<!--                  <input type="text" id="inputId" formControlName = "id" class="form-control"-->
+<!--                         placeholder="">-->
+<!--                  <label for="inputName">Tên cửa hàng</label>-->
+<!--                </div>-->
+                <div class="form-label-group">
+                  <input type="text" id="inputName" formControlName = "name" class="form-control"
+                         placeholder="">
+                  <label for="inputName">Tên cửa hàng</label>
+                </div>
+<!--                <div class="form-label-group">-->
+<!--                  <input type="text" id="phonenumber" formControlName = "phoneNumber" class="form-control"-->
+<!--                         placeholder="">-->
+<!--                  <label for="phonenumber">Số điện thoại</label>-->
+<!--                </div>-->
+                <div class="form-label-group mb-4">
+                  <input type="time" id="openTime" formControlName = "openTime" class="form-control" placeholder="">
+                  <label for="openTime">Giờ mở cửa</label>
+                </div>
+                <div class="form-label-group mb-4">
+                  <input type="time" id="closeTime" formControlName = "closeTime" class="form-control" placeholder="">
+                  <label for="closeTime">Giờ đóng cửa</label>
+                </div>
+                <div class="form-label-group mb-4">
+                  <input type="text" id="address" formControlName = "address" class="form-control" placeholder="">
+                  <label for="address">Địa chỉ</label>
+                </div>
+                <button class="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2">Cập nhật thông tin</button>
+                <a routerLink="/merchant" class="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2">Trang chủ</a>
+<!--                <a href="index.html"-->
+<!--                   class="btn btn-lg btn-outline-primary btn-block btn-customer-login text-uppercase font-weight-bold mb-2">Cập nhật thông tin</a>-->
+<!--                <div class="text-center pt-3">-->
+<!--                   <a class="font-weight-bold">Quay trở lại trang chủ</a>-->
+<!--                </div>-->
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<!--<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--  <div class="modal-dialog" role="document">-->
+<!--    <div class="modal-content">-->
+<!--      <div class="modal-header">-->
+<!--        <h5 class="modal-title" id="exampleModalLabel">Tạo mới món ăn</h5>-->
+<!--        <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--          <span aria-hidden="true">&times;</span>-->
+<!--        </button>-->
+<!--      </div>-->
+<!--      <div class="modal-body" style="color: red">-->
+<!--        Xác nhận tạo mới!-->
+<!--      </div>-->
+<!--      <div class="modal-footer">-->
+<!--        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>-->
+<!--        <a (click)="createFood()" routerLink="/merchant" type="button" class="btn btn-primary" data-dismiss="modal">Xác nhận</a>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<!-- Modal -->
+</body>
+
+

@@ -1,0 +1,71 @@
+<body class="bg-white">
+<div class="container-fluid">
+  <div class="row no-gutter">
+    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+    <div class="col-md-8 col-lg-6">
+      <div class="login d-flex align-items-center py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 col-lg-8 mx-auto pl-5 pr-5">
+              <h3 class="login-heading mb-4">Sign up as a seller and receive special offers!</h3>
+              <form [formGroup]="registerSellerForm" (ngSubmit)="registerSeller()">
+                <div class="form-label-group mb-4">
+                  <input type="text" id="name" formControlName="name" class="form-control" placeholder="Enter name">
+                  <label for="name">Enter name</label>
+                  <p style="color: red" *ngIf="!registerSellerForm.get('name')?.valid && registerSellerForm.get('name')?.touched">Blank is not allowed.</p>
+                </div>
+                <div class="form-label-group mb-4">
+                  <input type="text" id="phoneNumber" formControlName="phoneNumber" class="form-control" placeholder="Enter a number phone">
+                  <label for="phoneNumber">Enter a number phone</label>
+                  <p style="color: red" *ngIf="!registerSellerForm.get('phoneNumber')?.valid && registerSellerForm.get('phoneNumber')?.touched">Blank is not allowed, start with 0, includes 10 numbers</p>
+                </div>
+                <div class="form-label-group mb-4" hidden>
+<!--                  <input type="text" id="avatar" formControlName="avatar" class="form-control" placeholder="Enter avatar">-->
+                  <input type="file"
+                         id="avatar"
+                         #userPhoto
+                         (change)="onFileSelected($event)"
+                         name="image"
+                         autocomplete="off"
+                         class="form-control"
+                  />
+                  <label for="avatar">Enter avatar</label>
+                  <p style="color: red" *ngIf="!registerSellerForm.get('avatar')?.valid && registerSellerForm.get('avatar')?.touched">Blank is not allowed.</p>
+                </div>
+                <div class="form-label-group mb-4">
+                  <input type="text" id="address" formControlName="address" class="form-control" placeholder="Enter address">
+                  <label for="address">Enter address</label>
+                  <p style="color: red" *ngIf="!registerSellerForm.get('address')?.valid && registerSellerForm.get('address')?.touched">Blank is not allowed.</p>
+                </div>
+                <div formGroupName="appUser">
+                  <div class="form-label-group">
+                    <input type="email" id="username" formControlName="username" class="form-control"
+                           placeholder="Enter username">
+                    <label for="username">Enter username</label>
+                    <p style="color: red" *ngIf="!registerSellerForm.get('appUser')?.get('username')?.valid && registerSellerForm.get('appUser')?.get('username')?.touched">Blank is not allowed, format: example@gmail.com, maxlength: 50</p>
+                    <p style="color: red" *ngIf="check">Duplicate user name, please enter another user name</p>
+                  </div>
+                  <div class="form-label-group">
+                    <input type="password" id="password" formControlName="password" class="form-control"
+                           placeholder="Enter password">
+                    <label for="password">Enter password</label>
+                    <p style="color: red" *ngIf="!registerSellerForm.get('appUser')?.get('password')?.valid && registerSellerForm.get('appUser')?.get('password')?.touched">Blank is not allowed, minlength: 4, maxlength: 20</p>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2" style="margin-right: 10px">Register</button>
+                <button class="btn btn-lg btn-outline-secondary btn-block btn-login text-uppercase font-weight-bold mb-2" routerLink="/">Cancel</button>
+                <div class="text-center pt-3">
+                  Do you already have an account? <a class="font-weight-bold" routerLink="/login">Login now</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>

@@ -1,0 +1,85 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light osahan-nav shadow-sm">
+  <div class="container">
+    <a *ngIf="(isLogin&&isUser)||(isLogin&&isMerchant&&isUser)" class="navbar-brand" routerLink=""><img alt="logo"
+                                               style="width: 50px; height: 50px; border-radius: 50%" src="https://firebasestorage.googleapis.com/v0/b/fir-470c3.appspot.com/o/z3578349206972_f4eb9fa8a74840c95635b0f81642e08d.jpg?alt=media&token=02cfb780-a065-4f28-819e-8b1d5a432be5"></a>
+    <a *ngIf="isLogin&&isMerchant&&(!isUser)" class="navbar-brand" routerLink="/merchant"><img alt="logo" style="width: 50px; height: 50px; border-radius: 50%" src="https://firebasestorage.googleapis.com/v0/b/fir-470c3.appspot.com/o/z3578349206972_f4eb9fa8a74840c95635b0f81642e08d.jpg?alt=media&token=02cfb780-a065-4f28-819e-8b1d5a432be5"></a>
+    <a *ngIf="isLogin&&isCheckAdmin" class="navbar-brand" routerLink="/admin"><img alt="logo" style="width: 50px; height: 50px; border-radius: 50%" src="https://firebasestorage.googleapis.com/v0/b/fir-470c3.appspot.com/o/z3578349206972_f4eb9fa8a74840c95635b0f81642e08d.jpg?alt=media&token=02cfb780-a065-4f28-819e-8b1d5a432be5"></a>
+    <a *ngIf="!isLogin" class="navbar-brand" routerLink=""><img alt="logo" style="width: 50px; height: 50px; border-radius: 50%" src="https://firebasestorage.googleapis.com/v0/b/fir-470c3.appspot.com/o/z3578349206972_f4eb9fa8a74840c95635b0f81642e08d.jpg?alt=media&token=02cfb780-a065-4f28-819e-8b1d5a432be5"></a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a style="margin: 0px" *ngIf="!isLogin&&!isCheckAdmin" class="nav-link" routerLink="merchant-login">Kênh người bán <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item active">
+          <a *ngIf="isLogin&&!isCheckAdmin" class="nav-link" routerLink="merchant">Kênh người bán <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+          <a  *ngIf="(!isLogin&&!isMerchant&&!isCheckAdmin)||(isLogin&&!isMerchant&&!isCheckAdmin)" class="nav-link" routerLink="register-merchant">Trở thành người bán <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="(!isCheckAdmin&&!isMerchant)||(!isMerchant&&isUser)||(isMerchant&&isUser)" routerLink="showlist-food" class="nav-link" >Đặt món <span class="sr-only"></span></a>
+        </li>
+
+      </ul>
+    </div>
+    <div class="collapse navbar-collapse"></div>
+    <div class="collapse navbar-collapse"></div>
+    <div class="collapse navbar-collapse"></div>
+    <div class="collapse navbar-collapse"></div>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+<!--        <li class="nav-item active">-->
+<!--          <a *ngIf="(!isCheckAdmin)||(isMerchant&&!isUser)" routerLink="showlist-restaurant" class="nav-link">Nhà hàng <span class="sr-only"></span></a>-->
+<!--        </li>-->
+<!--        <li class="nav-item">-->
+<!--          <a *ngIf="(!isCheckAdmin&&!isMerchant)||(!isMerchant&&isUser)||(isMerchant&&isUser)" routerLink="showlist-food" class="nav-link" >Món ăn <span class="sr-only"></span></a>-->
+<!--        </li>-->
+      </ul>
+    </div>
+    <div class="collapse navbar-collapse"></div>
+    <div class="collapse navbar-collapse"></div>
+    <div class="collapse navbar-collapse"></div>
+    <div class="collapse navbar-collapse"></div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+<!--        <a *ngIf="!isLogin" mat-button class="docs-button" routerLink="register" aria-label="Angular Material">-->
+<!--          <span>Register</span>-->
+<!--        </a>-->
+<!--        <a *ngIf="!isLogin" mat-button class="docs-button" routerLink="login" aria-label="Angular Material">-->
+<!--          <span>Login</span>-->
+<!--        </a>-->
+<!--        <a *ngIf="isLogin" mat-button class="docs-button" routerLink="user-account" aria-label="Angular Material">-->
+<!--          <span>{{name}}</span>-->
+<!--        </a>-->
+
+        <li class="nav-item active">
+          <a *ngIf="!isLogin"  class="nav-link" routerLink="customer-login">Đăng nhập <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="!isLogin" class="nav-link" routerLink="register-customer">Đăng ký <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+          <a  routerLink="user" *ngIf="(isLogin&&isUser&&!isMerchant)||(isLogin&&isUser&&isMerchant)"  class="docs-button" aria-label="Angular Material">
+            <span>{{name}}</span></a>
+          <a routerLink="user" >
+            <img *ngIf="(isLogin&&isUser&&!isMerchant)||(isLogin&&isUser&&isMerchant)" class="navbar-brand" alt="osahan" style="border-radius: 50%" width="50px" height="50px" src="{{avatar}}">
+           </a>
+        <div  *ngIf="(isLogin&&isUser&&!isMerchant&&!isCheckAdmin)||(isLogin&&isUser&&isMerchant&&!isCheckAdmin)" class="nav-item dropdown dropdown-cart">
+          <a class="nav-link" routerLink="/user" role="button"
+             aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-shopping-basket"></i> Giỏ hàng
+<!--            <span class="badge badge-success">5</span>-->
+          </a>
+        </div>
+      <div class="collapse navbar-collapse"></div> <div class="collapse navbar-collapse"></div> <div class="collapse navbar-collapse"></div>
+      <div class="collapse navbar-collapse"></div> <div class="collapse navbar-collapse"></div> <div class="collapse navbar-collapse"></div>
+      <a *ngIf="isLogin" (click)="logout()" routerLink="" class="docs-button" aria-label="Angular Material">
+        <span>Logout</span></a>
+
+    </div>
+  </div>
+</nav>

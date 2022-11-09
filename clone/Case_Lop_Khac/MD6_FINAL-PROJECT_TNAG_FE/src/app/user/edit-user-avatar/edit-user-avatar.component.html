@@ -1,0 +1,32 @@
+<body class="bg-white">
+<div class="container-fluid">
+  <div class="row no-gutter">
+    <div class="col-md-12 col-lg-12">
+      <div class="login d-flex align-items-center py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 col-lg-8 mx-auto pl-5 pr-5">
+              <h3 class="login-heading mb-4">Cập nhật avatar</h3>
+              <form (ngSubmit)="onSubmit()">
+                <div>
+                  <div id="user-avatar-edit" style="margin-bottom: 10px; margin-top: 10px">
+                    <img id="food-image" src="{{customer.avatar}}" style="width: 300px; height: auto">
+                  </div>
+                  <app-upload-image (giveURLtoCreate)="onUploadAvatar($event)"></app-upload-image>
+                </div>
+                <button type="submit" class="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2">Cập nhật thông tin</button>
+                <a routerLink="/merchant" class="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2">Trang chủ</a>
+                <!--                <a href="index.html"-->
+                <!--                   class="btn btn-lg btn-outline-primary btn-block btn-customer-login text-uppercase font-weight-bold mb-2">Cập nhật thông tin</a>-->
+                <div class="text-center pt-3">
+                  <!--                  <a class="font-weight-bold">Quay trở lại trang chủ</a>-->
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
